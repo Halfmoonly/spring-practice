@@ -1,0 +1,26 @@
+package org.lyflexi.custom_design_pattern_framework.strategyByAop.biz;
+
+import lombok.extern.slf4j.Slf4j;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.annotation.AiPassiveMsg;
+import org.springframework.stereotype.Service;
+
+/**
+ * @Description:
+ * @Author: lyflexi
+ * @project: spring-practice
+ * @Date: 2024/9/13 22:47
+ */
+@Service
+@Slf4j
+public class BizServiceImpl {
+
+    @AiPassiveMsg(sceneType = "audit.serviceVersion.publish")
+    public void applyPublish(Param1 request) {
+        log.info("applyPublish begin");
+    }
+    @AiPassiveMsg(sceneType = "audit.serviceVersion.publish.audit")
+    public void approvePublish(Param2 request) {
+        log.info("approvePublish begin");
+
+    }
+}
