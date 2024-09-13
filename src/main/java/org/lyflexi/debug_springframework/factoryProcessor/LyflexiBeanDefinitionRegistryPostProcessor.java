@@ -9,7 +9,7 @@ import org.springframework.beans.factory.support.BeanDefinitionRegistryPostProce
 import org.springframework.stereotype.Component;
 
 @Component
-public class MyBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor{
+public class LyflexiBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor{
 
 	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {

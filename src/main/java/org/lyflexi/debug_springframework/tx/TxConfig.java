@@ -67,7 +67,7 @@ public class TxConfig {
 		dataSource.setUser("root");
 		dataSource.setPassword("root");
 		dataSource.setDriverClass("com.mysql.jdbc.Driver");
-		dataSource.setJdbcUrl("jdbc:mysql://47.103.44.163:3306/db?useSSL=false");
+		dataSource.setJdbcUrl("jdbc:mysql://192.168.18.100:3306/lyflexi?useSSL=false");
 		return dataSource;
 	}
 	
