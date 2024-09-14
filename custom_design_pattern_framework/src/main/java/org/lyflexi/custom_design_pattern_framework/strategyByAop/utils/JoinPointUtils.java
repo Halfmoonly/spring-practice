@@ -2,9 +2,7 @@ package org.lyflexi.custom_design_pattern_framework.strategyByAop.utils;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.Signature;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.lyflexi.custom_design_pattern_framework.strategyByAop.biz.Param1;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -30,14 +28,14 @@ public class JoinPointUtils {
     }
 
     /**
-     * 获取方法参数全信息
+     * 获取方法参数全信息，必须同时根据paramName和clazz才能确定唯一
      * @param joinPoint
      * @param paramName 方法参数名
      * @param clazz 方法参数类型
      * @param <T>
      * @return
      */
-    public static <T> T getParamByName(JoinPoint joinPoint, String paramName, Class<T> clazz) {
+    public static <T> T getCertainParam(JoinPoint joinPoint, String paramName, Class<T> clazz) {
         // 获取所有参数的值
         Object[] args = joinPoint.getArgs();
         // 获取方法签名

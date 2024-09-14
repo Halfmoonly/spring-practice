@@ -5,18 +5,21 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MethodSignature;
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.annotation.AiPassiveMsg;
-import org.lyflexi.custom_design_pattern_framework.strategyByAop.biz.Param1;
-import org.lyflexi.custom_design_pattern_framework.strategyByAop.context.MsgHandlerContext;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.biz.ConditionEnums;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.biz.MethodParam;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.biz.ParamA;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.biz.ParamB;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.annotationHander.MsgHandlerContext;
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.AiPassiveMsgHandler;
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.utils.JoinPointUtils;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.utils.SpringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * @Description:
@@ -40,13 +43,37 @@ public class AiPassiveMsgAspect {
 
     @AfterReturning("cut()")
     public void addAiInformation(JoinPoint joinPoint) throws IOException {
+        //通过注解参数获取策略类型
         AiPassiveMsg annotation = JoinPointUtils.getAnnotationByClass(joinPoint,AiPassiveMsg.class);
-        // 通过枚举值或者方法的调用
         String sceneType = annotation.sceneType();
         String[] users = annotation.users();
         String param = annotation.param();
+        log.info("handle by annotation param: {}",sceneType);
         AiPassiveMsgHandler instance = msgHandlerContext.getInstance(sceneType);
         HashMap<String, Object> map = new HashMap<>();
         instance.handle(map);
+
+        //通过方法参数获取策略类型
+        ParamA paramA = JoinPointUtils.getCertainParam(joinPoint, "paramA", ParamA.class);
+        ParamB paramB = JoinPointUtils.getCertainParam(joinPoint, "paramB", ParamB.class);
+        handleMethodParam(paramA, map);
+        handleMethodParam(paramB, map);
+    }
+
+    /**
+     *
+     * @param param
+     * @param map
+     * @throws IOException
+     */
+    private static void handleMethodParam(MethodParam param, HashMap<String, Object> map) throws IOException {
+        if (!Objects.isNull(param)){
+            String condition = param.getCondition();
+            ConditionEnums conditionEnums = ConditionEnums.match(condition);
+            AiPassiveMsgHandler methodHandler = SpringUtils.getBean(conditionEnums.getValue(), AiPassiveMsgHandler.class);
+            if (Objects.nonNull(methodHandler)){
+                methodHandler.handle(map);
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
-package org.lyflexi.custom_design_pattern_framework.strategyByAop.handler;
+package org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.annotationHander;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.annotation.PassiveMsgHandlerType;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.AiPassiveMsgHandler;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -14,7 +14,6 @@ import java.util.Map;
  * @project: spring-practice
  * @Date: 2024/9/13 22:52
  */
-@Component
 @Slf4j
 @PassiveMsgHandlerType("audit.serviceVersion.publish.audit")
 public class ApprovePublishServiceVersionMsgHandler extends AiPassiveMsgHandler {

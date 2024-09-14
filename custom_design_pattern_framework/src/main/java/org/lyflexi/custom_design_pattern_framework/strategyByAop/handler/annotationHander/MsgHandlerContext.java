@@ -1,4 +1,4 @@
-package org.lyflexi.custom_design_pattern_framework.strategyByAop.context;
+package org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.annotationHander;
 
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.AiPassiveMsgHandler;
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.utils.SpringUtils;

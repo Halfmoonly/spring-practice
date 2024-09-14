@@ -15,11 +15,11 @@ import org.springframework.stereotype.Service;
 public class BizServiceImpl {
 
     @AiPassiveMsg(sceneType = "audit.serviceVersion.publish")
-    public void applyPublish(Param1 request) {
+    public void applyPublish(ParamA paramA, ParamB paramB) {
         log.info("applyPublish begin");
     }
     @AiPassiveMsg(sceneType = "audit.serviceVersion.publish.audit")
-    public void approvePublish(Param2 request) {
+    public void approvePublish(ParamA paramA, ParamB paramB) {
         log.info("approvePublish begin");
 
     }

@@ -1,10 +1,8 @@
 package org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.processor;
 
 import com.google.common.collect.Maps;
-import org.checkerframework.checker.units.qual.A;
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.annotation.PassiveMsgHandlerType;
-import org.lyflexi.custom_design_pattern_framework.strategyByAop.context.MsgHandlerContext;
-import org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.AiPassiveMsgHandler;
+import org.lyflexi.custom_design_pattern_framework.strategyByAop.handler.annotationHander.MsgHandlerContext;
 import org.lyflexi.custom_design_pattern_framework.strategyByAop.utils.ClassScaner;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;

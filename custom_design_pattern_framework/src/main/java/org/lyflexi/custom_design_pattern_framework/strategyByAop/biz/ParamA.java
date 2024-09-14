@@ -1,6 +1,7 @@
 package org.lyflexi.custom_design_pattern_framework.strategyByAop.biz;
 
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 /**
  * @Description:
@@ -9,6 +10,9 @@ import lombok.Data;
  * @Date: 2024/9/13 23:17
  */
 @Data
-public class Param2 {
-    String condition;
+@EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
+@SuperBuilder
+public class ParamA extends MethodParam{
+
 }

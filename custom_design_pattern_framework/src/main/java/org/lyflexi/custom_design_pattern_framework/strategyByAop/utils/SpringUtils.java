@@ -3,7 +3,10 @@ package org.lyflexi.custom_design_pattern_framework.strategyByAop.utils;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
@@ -37,7 +40,19 @@ public class SpringUtils implements ApplicationContextAware {
     }
 
     public static <T> T getBean(Class<T> clazz) {
-        return getApplicationContext().getBean(clazz);
+        ApplicationContext context = getApplicationContext();
+        try {
+            // 尝试从Spring容器中获取bean
+            return context.getBean(clazz);
+        } catch (NoSuchBeanDefinitionException e) {
+            // 如果找不到bean，尝试使用默认构造函数创建新的实例
+            AutowireCapableBeanFactory factory = context.getAutowireCapableBeanFactory();
+            try {
+                return clazz.cast(factory.createBean(clazz));
+            } catch (Exception ex) {
+                throw new RuntimeException("Unable to instantiate class " + clazz.getName(), ex);
+            }
+        }
     }
 
     public static <T> T getBeanElseNull(Class<T> clazz) {
