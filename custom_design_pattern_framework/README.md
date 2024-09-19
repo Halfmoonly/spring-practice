@@ -7,6 +7,10 @@
 手写策略工厂，基于InitializingBean#afterPropertiesSet自动注册所有策略到自己的策略工厂
 
 图略
+### 设计方案3
+手写策略工厂：基于Spring3新特性，通过构造函数@Autowired批量注入Bean
+
+图略
 ### 设计方案3：
 基于BeanFactoryPostProcessor，利用Spring现成BeanFactory，配合Aop注解实现
 
