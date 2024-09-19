@@ -7,10 +7,6 @@
 手写策略工厂，基于InitializingBean#afterPropertiesSet自动注册所有策略到自己的策略工厂
 
 图略
-### 设计方案3
-手写策略工厂：基于Spring3新特性，通过构造函数@Autowired批量注入Bean
-
-图略
 ### 设计方案3：
 基于BeanFactoryPostProcessor，利用Spring现成BeanFactory，配合Aop注解实现
 
@@ -35,4 +31,9 @@
 2024-09-14T21:54:55.322+08:00  INFO 8744 --- [           main] o.l.c.s.h.methodHandler.ParamBHandler    : ParamBHandler begin
 ```
 
-## 
+# 更新日志
+2024/9月更新
+
+设计方案2优化： 手写策略工厂：基于Spring3新特性，通过构造函数@Autowired批量注入策略Bean集合，见[strategyByHandsFactory](custom_design_pattern_framework%2Fsrc%2Fmain%2Fjava%2Forg%2Flyflexi%2Fcustom_design_pattern_framework%2FstrategyByHandsFactory)
+
+图略
