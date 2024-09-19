@@ -1,6 +1,4 @@
-package org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean;
-
-import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.enums.StrategyInitializeType;
+package org.lyflexi.custom_design_pattern_framework.strategyByHandsFactory;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,7 +17,7 @@ public class StrategyFactory {
         strategies.put(strategy.getName(), strategy);
     }
 
-    public static AbstractStrategy getStrategy(StrategyInitializeType strategyInitializeType) {
-        return strategies.get(strategyInitializeType.getIdentifier());
+    public static AbstractStrategy getStrategy(String name) {
+        return strategies.get(name);
     }
 }

@@ -2,9 +2,9 @@ package org.lyflexi.custom_design_pattern_framework;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.StrategyContext;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.AbstractStrategy;
+import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.StrategyFactory;
+import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.enums.StrategyInitializeType;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -13,16 +13,18 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Slf4j
 class StrategyByInitializingBeanTests {
-    @Autowired
-    private StrategyContext context;
+
 
 
     @Test
     void contextLoads() {
-        context.setStrategy("TYPE_A");
-        context.executeStrategy("data");
-        log.info("Strategy: {}  executed",context.getStrategyName());
-        return ;
+        StrategyInitializeType typeA = StrategyInitializeType.fromIdentifier("TYPE_A");
+        StrategyInitializeType typeB = StrategyInitializeType.fromIdentifier("TYPE_B");
+
+        AbstractStrategy strategyA = StrategyFactory.getStrategy(typeA);
+        strategyA.execute("dataA");
+        AbstractStrategy strategyB = StrategyFactory.getStrategy(typeB);
+        strategyB.execute("dataB");
     }
 
 }

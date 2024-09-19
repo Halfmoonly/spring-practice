@@ -14,7 +14,9 @@ import org.springframework.context.annotation.FilterType;
 @SpringBootApplication
 @ComponentScan(excludeFilters = {
         @ComponentScan.Filter(type = FilterType.REGEX, pattern = "org.lyflexi.custom_design_pattern_framework.strategyByReflect.*"),
-        @ComponentScan.Filter(type = FilterType.REGEX, pattern = "org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.*"),
+//        @ComponentScan.Filter(type = FilterType.REGEX, pattern = "org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.*"),
+        @ComponentScan.Filter(type = FilterType.REGEX, pattern = "org.lyflexi.custom_design_pattern_framework.strategyByAop.*"),
+        @ComponentScan.Filter(type = FilterType.REGEX, pattern = "org.lyflexi.custom_design_pattern_framework.strategyByHandsFactory.*"),
 })
 public class MainApplication {
     public static void main(String[] args) {

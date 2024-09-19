@@ -1,4 +1,4 @@
-package org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean;
+package org.lyflexi.custom_design_pattern_framework.strategyByHandsFactory;
 
 import org.springframework.stereotype.Component;
 

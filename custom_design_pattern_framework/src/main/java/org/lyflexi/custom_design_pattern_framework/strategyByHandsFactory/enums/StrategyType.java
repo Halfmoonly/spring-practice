@@ -1,8 +1,8 @@
-package org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.enums;
+package org.lyflexi.custom_design_pattern_framework.strategyByHandsFactory.enums;
 
-import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.AbstractStrategy;
-import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.impl.StrategyA;
-import org.lyflexi.custom_design_pattern_framework.strategyByInitializingBean.impl.StrategyB;
+import org.lyflexi.custom_design_pattern_framework.strategyByHandsFactory.AbstractStrategy;
+import org.lyflexi.custom_design_pattern_framework.strategyByHandsFactory.impl.StrategyB;
+import org.lyflexi.custom_design_pattern_framework.strategyByHandsFactory.impl.StrategyA;
 
 /**
  * @Description:
