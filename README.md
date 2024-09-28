@@ -56,7 +56,7 @@ org.lyflexi.custom_design_pattern_framework
 基于BeanFactoryPostProcessor，利用Spring现成BeanFactory，配合Aop注解实现
 
 兄弟们，一图胜千言
-![img.png](pic/img.png)
+![img.png](custom_design_pattern_framework/pic/strategy.png)
 
 打印信息如下：
 ```shell
@@ -79,7 +79,9 @@ org.lyflexi.custom_design_pattern_framework
 # 更新日志
 ## 2024/9月更新
 
-设计方案2优化, 新增策略4：手写策略工厂，基于Spring3新特性，通过构造函数@Autowired批量注入策略Bean集合，见[strategyByHandsFactory](custom_design_pattern_framework%2Fsrc%2Fmain%2Fjava%2Forg%2Flyflexi%2Fcustom_design_pattern_framework%2FstrategyByHandsFactory)
+策略模式设计方案2优化, 新增策略模式方案4：
+
+手写策略工厂，基于Spring3新特性，通过构造函数@Autowired批量注入策略Bean集合，见[strategyByHandsFactory](custom_design_pattern_framework%2Fsrc%2Fmain%2Fjava%2Forg%2Flyflexi%2Fcustom_design_pattern_framework%2FstrategyByHandsFactory)
 
 图略
 
