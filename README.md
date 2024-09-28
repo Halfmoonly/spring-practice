@@ -86,7 +86,7 @@ org.lyflexi.custom_design_pattern_framework
 图略
 
 
-## 责任链模式 2024/09/29
+## 2024/09/29更新 责任链模式
 适用场景：
 - 适用于AOP式执行
 - 适用于Mybatis的二级缓存
