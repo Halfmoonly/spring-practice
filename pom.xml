@@ -16,7 +16,13 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>debug_spring</module>
+        <module>debug-aop</module>
+        <module>debug-aware</module>
+        <module>debug-factory</module>
+        <module>debug-listener</module>
+        <module>debug-tx</module>
+        <module>debug-beanlife</module>
+        <module>debug-circular-dependency</module>
         <module>custom_design_pattern_framework</module>
     </modules>
     <properties>

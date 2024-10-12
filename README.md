@@ -1,15 +1,16 @@
 # spring-practice
 # debug_spring
 debug_spring涵盖以下调试记录
-- xml
-- ioc
-- aop
-- aware
-- Bean后置处理器
-- 循环依赖
-- BeanFactory后置处理器
-- 监听器测试
-- 事务测试
+- xml：spring工程编译时，resource目录中的文件会被复制到Java的类路径classpath中，读取方式如`ApplicationContext context = new ClassPathXmlApplicationContext("classpath:dependencecircle/dependence_hasaop.xml");`
+- ioc：见[debug-factory](debug-factory)
+- aop：见[debug-aop](debug-aop)
+- aware：见[debug-aware](debug-aware)
+- Bean后置处理器：见[debug-beanlife](debug-beanlife)
+- Bean生命周期：见[debug-beanlife](debug-beanlife)
+- spring支持循环依赖：见[debug-circular-dependency](debug-circular-dependency)
+- BeanFactory后置处理器：见[debug-factory](debug-factory)
+- 监听器测试：见[debug-listener](debug-listener)
+- 事务测试: 见[debug-tx](debug-tx)
 
 注意：对于纯Spring测试，建议走Junit单元测试，如
 ```java
