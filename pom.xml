@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>debug-aop</module>
+        <module>debug-aop-v2</module>
         <module>debug-aware</module>
         <module>debug-factory</module>
         <module>debug-listener</module>
